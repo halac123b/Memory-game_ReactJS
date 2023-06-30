@@ -1,38 +1,91 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;800&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url("../public/bg.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+body::before {
+  content: "";
+  inset: 0;
+  position: fixed;
+  pointer-events: none;
+  box-shadow: 0 0 500px 0 black inset;
+}
+
+h1 {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 4rem;
+}
+
+.game-block {
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.card {
+  cursor: pointer;
+  width: 150px;
+  height: 170px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: transform 0.7s;
+}
+
+.card.matched {
+  transform: rotateY(180deg);
+}
+
+.card img,
+.card svg {
+  width: 70%;
+  position: absolute;
+  backface-visibility: hidden;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card svg {
+  width: 100px;
+  height: 100px;
+  opacity: 0.3;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button {
+  border: none;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+
+button.start-game {
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 1.5rem 2rem;
+  letter-spacing: 2px;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+button.reset {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  height: 80px;
+  width: 80px;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 50%;
 }
